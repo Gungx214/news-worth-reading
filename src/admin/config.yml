@@ -2,7 +2,7 @@ backend:
   name: github
   repo: Gungx214/news-worth-reading
   branch: main
-  base_url: https://news-worth-reading-knkn.vercel.app
+  base_url: https://decap-cms-oauth-three.vercel.app
   auth_endpoint: /auth
 
 media_folder: "src/images/uploads"

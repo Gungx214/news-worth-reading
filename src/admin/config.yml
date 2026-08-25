@@ -17,6 +17,7 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     summary: "{{title}}"
     fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "layouts/article.njk" }
       - { label: "Photo", name: "image", widget: "image", required: false, hint: "Drag a photo here, or click to choose one." }
       - { label: "Headline", name: "title", widget: "string", hint: "Type or paste the headline." }
       - { label: "Short summary", name: "dek", widget: "text", hint: "One or two sentences that appear under the headline on the homepage." }

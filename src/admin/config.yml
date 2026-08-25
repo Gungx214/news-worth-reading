@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: Gungx214/news-worth-reading
   branch: main
+  base_url: https://news-worth-reading-knkn.vercel.app
+  auth_endpoint: /auth
 
 media_folder: "src/images/uploads"
 public_folder: "/images/uploads"

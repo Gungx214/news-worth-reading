@@ -1,10 +1,10 @@
 module.exports = function(eleventyConfig) {
-  // 1. Create the "articles" collection automatically from files inside src/articles/
+  // Automatically group all Markdown files in src/articles/ into collections.articles
   eleventyConfig.addCollection("articles", function(collectionApi) {
     return collectionApi.getFilteredByGlob("src/articles/*.md").reverse();
   });
 
-  // 2. Custom date filter
+  // Date formatting filter
   eleventyConfig.addFilter("displayDate", (dateObj) => {
     return new Date(dateObj).toLocaleDateString("en-US", {
       year: "numeric",
@@ -14,7 +14,7 @@ module.exports = function(eleventyConfig) {
     });
   });
 
-  // 3. Copy static assets to output
+  // Pass-through static assets
   eleventyConfig.addPassthroughCopy("src/styles.css");
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/admin");

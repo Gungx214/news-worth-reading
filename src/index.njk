@@ -9,10 +9,10 @@ title: NewsWorthReading
 
   <div class="section-label">Top story</div>
   <div class="hero">
-    <a class="hero-main" href="{{ hero.url }}">
+    <a class="hero-main" href="{{ hero.url | url }}">
       <span class="top-badge">Top Story</span>
       {% if hero.data.image %}
-        <img src="/images/uploads/{{ hero.data.image }}" alt="{{ hero.data.title }}" class="hero-img">
+        <img src="{{ ('/images/uploads/' + hero.data.image) | url }}" alt="{{ hero.data.title }}" class="hero-img">
       {% else %}
         <div class="hero-img"></div>
       {% endif %}
@@ -24,9 +24,9 @@ title: NewsWorthReading
     <div class="hero-side">
       <div class="hero-side-label">Older News</div>
       {% for item in articles.slice(1, 4) %}
-      <a class="side-item" href="{{ item.url }}">
+      <a class="side-item" href="{{ item.url | url }}">
         {% if item.data.image %}
-          <img src="/images/uploads/{{ item.data.image }}" alt="{{ item.data.title }}" class="side-img">
+          <img src="{{ ('/images/uploads/' + item.data.image) | url }}" alt="{{ item.data.title }}" class="side-img">
         {% else %}
           <div class="side-img"></div>
         {% endif %}
@@ -41,9 +41,9 @@ title: NewsWorthReading
   <div class="section-label">Latest</div>
   <div class="grid">
     {% for item in articles.slice(4) %}
-    <a class="card" href="{{ item.url }}">
+    <a class="card" href="{{ item.url | url }}">
       {% if item.data.image %}
-        <img src="/images/uploads/{{ item.data.image }}" alt="{{ item.data.title }}" class="card-img">
+        <img src="{{ ('/images/uploads/' + item.data.image) | url }}" alt="{{ item.data.title }}" class="card-img">
       {% else %}
         <div class="card-img"></div>
       {% endif %}
@@ -57,6 +57,5 @@ title: NewsWorthReading
 {% else %}
   <div style="padding: 40px 0; text-align: center;">
     <h2>No articles found</h2>
-    <p>Add Markdown files inside <code>src/articles/</code> with <code>tags: articles</code> in the front matter to display news here.</p>
   </div>
 {% endif %}

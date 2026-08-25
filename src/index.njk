@@ -12,7 +12,7 @@ title: NewsWorthReading
     <a class="hero-main" href="{{ hero.url | url }}">
       <span class="top-badge">Top Story</span>
       {% if hero.data.image %}
-        <img src="{{ ('/images/uploads/' + hero.data.image) | url }}" alt="{{ hero.data.title }}" class="hero-img">
+        <img src="{{ hero.data.image | url }}" alt="{{ hero.data.title }}" class="hero-img">
       {% else %}
         <div class="hero-img"></div>
       {% endif %}
@@ -26,7 +26,7 @@ title: NewsWorthReading
       {% for item in articles.slice(1, 4) %}
       <a class="side-item" href="{{ item.url | url }}">
         {% if item.data.image %}
-          <img src="{{ ('/images/uploads/' + item.data.image) | url }}" alt="{{ item.data.title }}" class="side-img">
+          <img src="{{ item.data.image | url }}" alt="{{ item.data.title }}" class="side-img">
         {% else %}
           <div class="side-img"></div>
         {% endif %}
@@ -43,7 +43,7 @@ title: NewsWorthReading
     {% for item in articles.slice(4) %}
     <a class="card" href="{{ item.url | url }}">
       {% if item.data.image %}
-        <img src="{{ ('/images/uploads/' + item.data.image) | url }}" alt="{{ item.data.title }}" class="card-img">
+        <img src="{{ item.data.image | url }}" alt="{{ item.data.title }}" class="card-img">
       {% else %}
         <div class="card-img"></div>
       {% endif %}

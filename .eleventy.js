@@ -1,5 +1,10 @@
 module.exports = function(eleventyConfig) {
-  // Register the missing displayDate filter
+  // 1. Create the "articles" collection automatically from files inside src/articles/
+  eleventyConfig.addCollection("articles", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("src/articles/*.md").reverse();
+  });
+
+  // 2. Custom date filter
   eleventyConfig.addFilter("displayDate", (dateObj) => {
     return new Date(dateObj).toLocaleDateString("en-US", {
       year: "numeric",
@@ -9,12 +14,13 @@ module.exports = function(eleventyConfig) {
     });
   });
 
-  // Copy static assets to the output folder
+  // 3. Copy static assets to output
   eleventyConfig.addPassthroughCopy("src/styles.css");
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/admin");
 
   return {
+    pathPrefix: "/news-worth-reading/",
     dir: {
       input: "src",
       includes: "_includes",

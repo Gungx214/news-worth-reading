@@ -1,30 +1,42 @@
-module.exports = function(eleventyConfig) {
-  // Automatically group all Markdown files in src/articles/ into collections.articles
-  eleventyConfig.addCollection("articles", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("src/articles/*.md").reverse();
-  });
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title or "The Philippine Scribe" }}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Archivo+Black&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ '/styles.css' | url }}">
+</head>
+<body>
 
-  // Date formatting filter
-  eleventyConfig.addFilter("displayDate", (dateObj) => {
-    return new Date(dateObj).toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-      timeZone: "UTC"
-    });
-  });
+<div class="masthead">
+  <span>VOL. 1 — SIMPLE EDITION</span>
+  <span class="live" id="clock">DAVAO, PH — 00:00</span>
+</div>
 
-  // Pass-through static assets
-  eleventyConfig.addPassthroughCopy("src/styles.css");
-  eleventyConfig.addPassthroughCopy("src/images");
-  eleventyConfig.addPassthroughCopy("src/admin");
+<div class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="{{ '/' | url }}">The Philippine Scribe</a>
+  </div>
+</div>
 
-  return {
-    pathPrefix: "/news-worth-reading/",
-    dir: {
-      input: "src",
-      includes: "_includes",
-      output: "_site"
-    }
-  };
-};
+<main>
+{{ content | safe }}
+</main>
+
+<footer>THE PHILIPPINE SCRIBE</footer>
+
+<script>
+  function updateClock(){
+    const now = new Date();
+    const h = String(now.getHours()).padStart(2,'0');
+    const m = String(now.getMinutes()).padStart(2,'0');
+    document.getElementById('clock').textContent = `DAVAO, PH — ${h}:${m}`;
+  }
+  updateClock();
+  setInterval(updateClock, 30000);
+</script>
+
+</body>
+</html>

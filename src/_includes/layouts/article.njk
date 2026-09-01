@@ -1,25 +1,20 @@
 ---
 layout: layouts/base.njk
 ---
-
 <div class="back-link"><a href="{{ '/' | url }}">&larr; Back to headlines</a></div>
-
 <div class="article-header">
   <h1>{{ title }}</h1>
-  <p class="dek">{{ dek }}</p>
   <div class="article-meta">
-    <span>Ulat ng Balita</span>
     <span>{{ location }} — {{ date | displayDate }}</span>
   </div>
 </div>
-
 {% if image %}
 <img src="{{ image | url }}" alt="{{ title }}" class="article-hero-img">
 {% endif %}
 {% if caption %}
 <p class="caption">{{ caption }}</p>
 {% endif %}
-
+<p class="article-summary">{{ dek }}</p>
 <div class="article-body">
 {{ content | safe }}
 </div>

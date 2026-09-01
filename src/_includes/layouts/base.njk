@@ -3,48 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{ title or "NewsWorthReading" }}</title>
-
+<title>{{ title or "The Philippine Scribe" }}</title>
 <!-- Facebook & Social Media Open Graph Meta Tags -->
 <meta property="og:type" content="article">
-<meta property="og:title" content="{{ title or 'NewsWorthReading' }}">
-<meta property="og:description" content="{{ dek or 'Latest news update from NewsWorthReading' }}">
+<meta property="og:title" content="{{ title or 'The Philippine Scribe' }}">
+<meta property="og:description" content="{{ dek or 'Latest news update from The Philippine Scribe' }}">
 {% if image %}
   <meta property="og:image" content="https://gungx214.github.io{{ image | url }}">
 {% endif %}
 <meta property="og:url" content="https://gungx214.github.io{{ page.url | url }}">
-
 <!-- Twitter Card Meta Tags -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{{ title or 'NewsWorthReading' }}">
-<meta name="twitter:description" content="{{ dek or 'Latest news update from NewsWorthReading' }}">
+<meta name="twitter:title" content="{{ title or 'The Philippine Scribe' }}">
+<meta name="twitter:description" content="{{ dek or 'Latest news update from The Philippine Scribe' }}">
 {% if image %}
   <meta name="twitter:image" content="https://gungx214.github.io{{ image | url }}">
 {% endif %}
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Archivo+Black&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ '/styles.css' | url }}">
 </head>
 <body>
-
 <div class="masthead">
   <span>VOL. 1 — SIMPLE EDITION</span>
   <span class="live" id="clock">DAVAO, PH — 00:00</span>
 </div>
-
 <div class="nav">
   <div class="nav-inner">
-    <a class="logo" href="{{ '/' | url }}">NewsWorthReading</a>
+    <a class="logo" href="{{ '/' | url }}">The Philippine Scribe</a>
   </div>
 </div>
-
 <main>
 {{ content | safe }}
 </main>
-
-<footer>NEWSWORTHREADING — DAVAO CITY</footer>
-
+<footer>THE PHILIPPINE SCRIBE</footer>
 <script>
   function updateClock(){
     const now = new Date();
@@ -55,6 +47,5 @@
   updateClock();
   setInterval(updateClock, 30000);
 </script>
-
 </body>
 </html>
